@@ -22,7 +22,6 @@ public class StandardCsvConverter implements StandardConverter {
      */
     @Override
     public void convert(List<Map<String, String>> collectionToConvert, OutputStream outputStream) {
-        // TODO: implement by using csvConverter
+        csvConverter.convert(new ConvertibleCollectionImpl(collectionToConvert), outputStream);
     }
-
 }
