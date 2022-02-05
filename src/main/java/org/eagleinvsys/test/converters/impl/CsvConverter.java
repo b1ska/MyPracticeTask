@@ -20,6 +20,14 @@ public class CsvConverter implements Converter {
      */
     @Override
     public void convert(ConvertibleCollection collectionToConvert, OutputStream outputStream) {
+        if (outputStream == null) {
+            throw new NullPointerException("OutputStream is null");
+        }
+
+        if (collectionToConvert == null) {
+            throw new NullPointerException("CollectionToConvert cant be null");
+        }
+
         writer = new PrintWriter(outputStream);
 
         Collection<String> headers = collectionToConvert.getHeaders();
